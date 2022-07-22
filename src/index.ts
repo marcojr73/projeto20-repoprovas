@@ -4,6 +4,8 @@ import "express-async-errors"
 import dotenv from "dotenv"
 import cors from "cors"
 import authRouter from "./routers/authRouter.js"
+import errorHandler from "./middlewares/errorHandlerMiddleware.js"
+import addTestRouter from "./routers/addTestRouter.js"
 
 
 const app = express()
@@ -12,6 +14,9 @@ app.use(express.json())
 dotenv.config()
 
 app.use(authRouter)
+app.use(addTestRouter)
+app.use(errorHandler)
+
 
 const PORT = +process.env.PORT || 4000
 
