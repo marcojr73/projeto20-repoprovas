@@ -44,10 +44,19 @@ async function insertTest(datatest: dataTest){
     await repositories.insertTestOnTable(datatest)
 }
 
+async function validateTestNotExist(dataTest: dataTest){
+    const ans = await repositories.findTestsByData(dataTest)
+    if(ans) throw {
+        status: 422,
+        message: "this test already register"
+    }
+}
+
 export {
     findCategory,
     findDiscipline,
     findTeacher,
     findTeacherDiscipline,
+    validateTestNotExist,
     insertTest
 }

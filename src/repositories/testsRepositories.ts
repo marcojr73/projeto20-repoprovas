@@ -40,6 +40,12 @@ async function findTeacherDisciplineByIds(teacherId: number, disciplineId: numbe
     })
 }
 
+async function findTestsByData(dataTest: dataTest){
+    return await client.tests.findFirst({
+        where:dataTest
+    })
+}
+
 async function insertTestOnTable(datatest: dataTest){
     await client.tests.create({
         data: datatest
@@ -51,5 +57,6 @@ export {
     findDisciplineByName,
     findteacherByName,
     findTeacherDisciplineByIds,
+    findTestsByData,
     insertTestOnTable
 }

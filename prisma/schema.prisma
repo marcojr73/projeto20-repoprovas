@@ -33,6 +33,8 @@ model tests {
   teacherDisciplines        teachersDisciplines @relation(fields: [teacherDisciplineId], references: [id])
   teacherDisciplineId       Int
   createdAt                 DateTime @default(now())
+
+  @@unique([categoryId, teacherDisciplineId])
 }
 
 model teachersDisciplines{
@@ -43,6 +45,8 @@ model teachersDisciplines{
   disciplineId              Int
   tests                     tests[]
   createdAt                 DateTime @default(now())
+
+  @@unique([teacherId, disciplineId])
 }
 
 model teachers{
