@@ -3,6 +3,14 @@ import dotenv from "dotenv"
 
 dotenv.config()
 
+type dataCreate = {
+    name: string, 
+    pdfUrl: string, 
+    discipline: string, 
+    category: string, 
+    teacher: string
+}
+
 async function validatetionTokenAndStoreUser(token: string){
     if (!token) throw {
         status: 401,
@@ -21,5 +29,6 @@ async function validatetionTokenAndStoreUser(token: string){
 }
 
 export {
+    dataCreate,
     validatetionTokenAndStoreUser
 }

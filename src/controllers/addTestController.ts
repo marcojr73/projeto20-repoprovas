@@ -4,12 +4,16 @@ import * as addServices from "../services/addTestService.js"
 
 async function addTest(req: Request, res: Response){
 
-    const {name, pdfUrl, category, discipline, teacher}: {name: string, pdfUrl: string, discipline: string, category: string, teacher: string} = req.body
+    const {name, pdfUrl, category, discipline, teacher}: utils.dataCreate = req.body
     const token: string = req.headers.authorization?.replace("Bearer", "").trim()
 
-    const userId = await utils.validatetionTokenAndStoreUser(token)
+    await utils.validatetionTokenAndStoreUser(token)
+
     const categoryId = await addServices.findCategory(category)
-    console.log(categoryId)
+    const disciplineId = await addServices.findDiscipline(discipline)
+    const teacherId = await addServices.findTeacher(teacher)
+    const teacherDisciplineId = await addServices.findTeacherDiscipline(teacherId, disciplineId)
+    await addServices.insertTest({name, pdfUrl, categoryId, teacherDisciplineId})
 
     res.status(201).send("bala azul")
 }
