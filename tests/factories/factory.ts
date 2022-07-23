@@ -103,13 +103,11 @@ function findDiff(arr){
     let discipline = null
     for (let i = 0; i < arr.length; i++) {
         for(let j = 1; j<arr.length; j++){
-            console.log(arr[i], arr[j])
             if(arr[i].teacher !== arr[j].teacher){
                 teacher = arr[i].teacher
                 discipline = arr[j].discipline
             }
         }
-        
     }
     return {
         teacher,

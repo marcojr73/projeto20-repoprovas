@@ -67,6 +67,18 @@ export async function insertTest(){
             response = await supertest(app).post("/tests/create").auth(token, {type: "bearer"}).send(dataTest)
             expect(response.statusCode).toBe(422)
         })
+
+        it("fail when sending an test already exist", async() => {
+            const user = factory.createDataUser()
+            await supertest(app).post("/sign-up").send(user)
+            let response = await supertest(app).post("/sign-in").send(user)
+            const token = response.text
+            const dataTest = await factory.createDataTest()
+            await supertest(app).post("/tests/create").auth(token, {type: "bearer"}).send(dataTest)
+            response = await supertest(app).post("/tests/create").auth(token, {type: "bearer"}).send(dataTest)
+
+            expect(response.statusCode).toBe(422)
+        })
     
     })
     
