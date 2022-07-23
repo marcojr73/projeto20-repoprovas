@@ -100,6 +100,15 @@ async function getAllTestsOfTeacher(){
                                 select:{
                                     name: true
                                 }
+                            },
+                            teacherDisciplines:{
+                                select:{
+                                    disciplines:{
+                                        select:{
+                                            name: true
+                                        }
+                                    }
+                                }
                             }
                         }
                     }

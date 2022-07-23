@@ -14,7 +14,7 @@ async function viewtestsByDiscipline(req: Request, res: Response){
 }
 
 async function viewtestsByTeacher(req: Request, res: Response){
-    
+
     const token: string = req.headers.authorization?.replace("Bearer", "").trim()
 
     await utils.validatetionTokenAndStoreUser(token)
