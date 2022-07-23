@@ -28,11 +28,13 @@ model tests {
   id                        Int @id @default(autoincrement())
   name                      String
   pdfUrl                    String
-  category                  categories @relation(fields: [categoryId], references: [id])
+  categories                  categories @relation(fields: [categoryId], references: [id])
   categoryId                Int
   teacherDisciplines        teachersDisciplines @relation(fields: [teacherDisciplineId], references: [id])
   teacherDisciplineId       Int
   createdAt                 DateTime @default(now())
+
+  @@unique([categoryId, teacherDisciplineId])
 }
 
 model teachersDisciplines{
@@ -43,6 +45,8 @@ model teachersDisciplines{
   disciplineId              Int
   tests                     tests[]
   createdAt                 DateTime @default(now())
+
+  @@unique([teacherId, disciplineId])
 }
 
 model teachers{

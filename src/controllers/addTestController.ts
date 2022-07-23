@@ -13,9 +13,10 @@ async function addTest(req: Request, res: Response){
     const disciplineId = await addServices.findDiscipline(discipline)
     const teacherId = await addServices.findTeacher(teacher)
     const teacherDisciplineId = await addServices.findTeacherDiscipline(teacherId, disciplineId)
+    await addServices.validateTestNotExist({name, pdfUrl, categoryId, teacherDisciplineId})
     await addServices.insertTest({name, pdfUrl, categoryId, teacherDisciplineId})
 
-    res.status(201).send("bala azul")
+    res.status(201).send("Test register sucessfull")
 }
 
 export {

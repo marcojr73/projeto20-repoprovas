@@ -1,13 +1,9 @@
 import { Router } from "express";
+import { viewtestsByDiscipline, viewtestsByTeacher } from "../controllers/viewTestsController.js";
 
+const viewTestRouter = Router()
 
-const viewTest = Router()
+viewTestRouter.get("/tests/disciplines", viewtestsByDiscipline)
+viewTestRouter.get("/tests/teacher", viewtestsByTeacher)
 
-
-
-viewTest.get("/tests?groupBy")
-
-viewTest.get("/tests/disciplines")
-viewTest.get("/tests/teachers")
-
-export default viewTest
+export default viewTestRouter
