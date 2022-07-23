@@ -1,13 +1,9 @@
 import { Router } from "express";
+import { viewtests } from "../controllers/viewTestsController.js";
+import { validateCorrectGroupSent } from "../middlewares/testsMiddlewawre.js";
 
+const viewTestRouter = Router()
 
-const viewTest = Router()
+viewTestRouter.get("/tests", validateCorrectGroupSent, viewtests)
 
-
-
-viewTest.get("/tests?groupBy")
-
-viewTest.get("/tests/disciplines")
-viewTest.get("/tests/teachers")
-
-export default viewTest
+export default viewTestRouter

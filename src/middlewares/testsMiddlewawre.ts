@@ -12,6 +12,21 @@ async function validateDataCreateTest(req: Request, res: Response, next: NextFun
 
 }
 
+function validateCorrectGroupSent(req: Request, res: Response, next: NextFunction){
+    
+    const groupBy = req.query.groupBy
+
+    if(groupBy !== "disciplines" && groupBy !== "teachers") {
+        throw {
+            status: 406,
+            message: "this group not valid"
+        }
+    }
+
+    next()
+}
+
 export {
-    validateDataCreateTest
+    validateDataCreateTest,
+    validateCorrectGroupSent
 }

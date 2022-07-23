@@ -6,6 +6,7 @@ import cors from "cors"
 import authRouter from "./routers/authRouter.js"
 import errorHandler from "./middlewares/errorHandlerMiddleware.js"
 import addTestRouter from "./routers/addTestRouter.js"
+import viewTestRouter from "./routers/viewTestRouter.js"
 
 
 const app = express()
@@ -15,6 +16,7 @@ dotenv.config()
 
 app.use(authRouter)
 app.use(addTestRouter)
+app.use(viewTestRouter)
 app.use(errorHandler)
 
 
