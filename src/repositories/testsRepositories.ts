@@ -87,7 +87,26 @@ async function getAllTestsOfDiscipline(){
 }
 
 async function getAllTestsOfTeacher(){
-
+    return await client.teachers.findMany({
+        select:{
+            name: true,
+            teachersDisciplines:{
+                select:{
+                    tests:{
+                        select:{
+                            name: true,
+                            pdfUrl: true,
+                            categories:{
+                                select:{
+                                    name: true
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    })
 }
 
 export {

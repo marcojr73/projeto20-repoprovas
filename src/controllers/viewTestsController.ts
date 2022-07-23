@@ -21,7 +21,7 @@ async function viewtestsByTeacher(req: Request, res: Response){
 
     const groupTest = await servicesTest.getAllTestsOfTeacher() 
 
-    res.status(200).send("teacher")
+    res.status(200).send(groupTest)
 }
 
 export {
