@@ -52,11 +52,51 @@ async function insertTestOnTable(datatest: dataTest){
     })
 }
 
+async function getAllTestsOfDiscipline(){
+    return await client.terms.findMany({
+        select:{
+            number: true,
+            disciplines: {
+                select:{
+                    name: true,
+                    teachersDisciplines:{
+                        select:{
+                            teacher:{
+                                select:{
+                                    name: true
+                                }
+                            },
+                            tests:{
+                                select:{
+                                    name: true,
+                                    pdfUrl: true,
+                                    categories:{
+                                        select:{
+                                            name: true
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }                
+            }
+
+        }
+    })
+}
+
+async function getAllTestsOfTeacher(){
+
+}
+
 export {
     findCategoryByName,
     findDisciplineByName,
     findteacherByName,
     findTeacherDisciplineByIds,
     findTestsByData,
-    insertTestOnTable
+    insertTestOnTable,
+    getAllTestsOfDiscipline,
+    getAllTestsOfTeacher
 }

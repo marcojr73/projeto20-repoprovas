@@ -1,9 +1,9 @@
 import { Router } from "express";
-import { viewtests } from "../controllers/viewTestsController.js";
-import { validateCorrectGroupSent } from "../middlewares/testsMiddlewawre.js";
+import { viewtestsByDiscipline, viewtestsByTeacher } from "../controllers/viewTestsController.js";
 
 const viewTestRouter = Router()
 
-viewTestRouter.get("/tests", validateCorrectGroupSent, viewtests)
+viewTestRouter.get("/tests/disciplines", viewtestsByDiscipline)
+viewTestRouter.get("/tests/teacher", viewtestsByTeacher)
 
 export default viewTestRouter
