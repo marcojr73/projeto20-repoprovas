@@ -11,9 +11,9 @@ dotenv.config()
 export async function authTest(){
     console.log("tests running on base" + process.env.DATABASE_URL)
 
-    // beforeEach(async ()=> {
-    //     await client.$executeRaw`TRUNCATE TABLE users`
-    // })
+    beforeEach(async ()=> {
+        await client.$executeRaw`TRUNCATE TABLE users`
+    })
     
     describe("validation signup", () => {
         it("get registration in the application", async () => {
@@ -47,7 +47,7 @@ export async function authTest(){
     })
     
     afterAll(async () => {
-        // await client.$executeRaw`TRUNCATE TABLE users`
+        await client.$executeRaw`TRUNCATE TABLE users`
         await client.$disconnect();
     });
 }

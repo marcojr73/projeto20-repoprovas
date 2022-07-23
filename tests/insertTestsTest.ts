@@ -26,6 +26,47 @@ export async function insertTest(){
 
             expect(response.statusCode).toBe(201)
         })
+
+        it("fail to submit category does not exist", async() => {
+            const user = factory.createDataUser()
+            await supertest(app).post("/sign-up").send(user)
+            let response = await supertest(app).post("/sign-in").send(user)
+            const token = response.text
+            const dataTest = await factory.createFakeCategory()
+            response = await supertest(app).post("/tests/create").auth(token, {type: "bearer"}).send(dataTest)
+
+            expect(response.statusCode).toBe(404)
+        })
+
+        it("fail to submit discipline does not exist", async() => {
+            const user = factory.createDataUser()
+            await supertest(app).post("/sign-up").send(user)
+            let response = await supertest(app).post("/sign-in").send(user)
+            const token = response.text
+            const dataTest = await factory.createFakeDiscipline()
+            response = await supertest(app).post("/tests/create").auth(token, {type: "bearer"}).send(dataTest)
+            expect(response.statusCode).toBe(404)
+        })
+
+        it("fail to submit teacher does not exist", async() => {
+            const user = factory.createDataUser()
+            await supertest(app).post("/sign-up").send(user)
+            let response = await supertest(app).post("/sign-in").send(user)
+            const token = response.text
+            const dataTest = await factory.createFakeTeacher()
+            response = await supertest(app).post("/tests/create").auth(token, {type: "bearer"}).send(dataTest)
+            expect(response.statusCode).toBe(404)
+        })
+
+        it("fail when sending a teacher from another discipline", async() => {
+            const user = factory.createDataUser()
+            await supertest(app).post("/sign-up").send(user)
+            let response = await supertest(app).post("/sign-in").send(user)
+            const token = response.text
+            const dataTest = await factory.createFakeTeacherDiscipline()
+            response = await supertest(app).post("/tests/create").auth(token, {type: "bearer"}).send(dataTest)
+            expect(response.statusCode).toBe(422)
+        })
     
     })
     

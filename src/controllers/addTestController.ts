@@ -7,7 +7,6 @@ async function addTest(req: Request, res: Response){
     const {name, pdfUrl, category, discipline, teacher}: utils.dataCreate = req.body
     const token: string = req.headers.authorization?.replace("Bearer", "").trim()
 
-
     await utils.validatetionTokenAndStoreUser(token)
 
     const categoryId = await addServices.findCategory(category)
