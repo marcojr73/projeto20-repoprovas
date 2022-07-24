@@ -35,8 +35,8 @@ Install my-project with npm and configure .env
 
 | sent by |Parameter | Type     |                 |
 | :-------- |:-------- | :------- | :------------------------- |
-| `body` |`email` | `string` | **Required**  |
-| `body` |`password` | `string` | **Required** |
+| `body` |`email` | `string` |
+| `body` |`password` | `string` |
 
 #### Sign-in
 
@@ -46,8 +46,8 @@ Install my-project with npm and configure .env
 
 | sent by |Parameter | Type     |                 |
 | :-------- |:-------- | :------- | :------------------------- |
-| `body` |`email` | `string` | **Required**  |
-| `body` |`password` | `string` | **Required** |
+| `body` |`email` | `string` | 
+| `body` |`password` | `string` |
 
 #### Create test 
 
@@ -57,12 +57,12 @@ Install my-project with npm and configure .env
 
 | sent by |Parameter | Type     |                 |
 | :-------- |:-------- | :------- | :------------------------- |
-| `header` |`authorization` | `Bearer token` | **Required**  |
-| `body` |`name` | `string` | **Required**  |
-| `body` |`pdfUrl` | `string` | **Required** |
-| `body` |`category*` | `string` | **Required**  |
-| `body` |`discipline*` | `string` | **Required** |
-| `body` |`teacher*` | `string` | **Required** |
+| `header` |`authorization` | `Bearer token` | 
+| `body` |`name` | `string` | 
+| `body` |`pdfUrl` | `string` |
+| `body` |`category*` | `string` | 
+| `body` |`discipline*` | `string` | 
+| `body` |`teacher*` | `string` | 
 
 category, teacher and discipline must be consistent with the bank's rules
 
@@ -74,7 +74,7 @@ category, teacher and discipline must be consistent with the bank's rules
 
 | sent by |Parameter | Type     |                 |
 | :-------- |:-------- | :------- | :------------------------- |
-| `header` |`authorization` | `Bearer token` | **Required**  |
+| `header` |`authorization` | `Bearer token` | 
 
 #### Views the tests by teacher
 
@@ -84,4 +84,4 @@ category, teacher and discipline must be consistent with the bank's rules
 
 | sent by |Parameter | Type     |                 |
 | :-------- |:-------- | :------- | :------------------------- |
-| `header` |`authorization` | `Bearer token` | **Required**  |
+| `header` |`authorization` | `Bearer token` |
