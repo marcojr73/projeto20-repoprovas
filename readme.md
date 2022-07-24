@@ -33,8 +33,8 @@ Install my-project with npm and configure .env
   POST /sign-up
 ```
 
-| sent by |Parameter | Type     |                 |
-| :-------- |:-------- | :------- | :------------------------- |
+| sent by |Parameter | Type     |             
+| :-------- |:-------- | :------- | 
 | `body` |`email` | `string` |
 | `body` |`password` | `string` |
 
@@ -44,8 +44,8 @@ Install my-project with npm and configure .env
   POST /sign-in
 ```
 
-| sent by |Parameter | Type     |                 |
-| :-------- |:-------- | :------- | :------------------------- |
+| sent by |Parameter | Type     |                 
+| :-------- |:-------- | :------- | 
 | `body` |`email` | `string` | 
 | `body` |`password` | `string` |
 
@@ -55,8 +55,8 @@ Install my-project with npm and configure .env
   POST /tests/create
 ```
 
-| sent by |Parameter | Type     |                 |
-| :-------- |:-------- | :------- | :------------------------- |
+| sent by |Parameter | Type     |                 
+| :-------- |:-------- | :------- | 
 | `header` |`authorization` | `Bearer token` | 
 | `body` |`name` | `string` | 
 | `body` |`pdfUrl` | `string` |
@@ -72,8 +72,8 @@ category, teacher and discipline must be consistent with the bank's rules
   GET /tests/disciplines
 ```
 
-| sent by |Parameter | Type     |                 |
-| :-------- |:-------- | :------- | :------------------------- |
+| sent by |Parameter | Type     |                 
+| :-------- |:-------- | :------- | 
 | `header` |`authorization` | `Bearer token` | 
 
 #### Views the tests by teacher
@@ -82,6 +82,6 @@ category, teacher and discipline must be consistent with the bank's rules
   GET /tests/disciplines
 ```
 
-| sent by |Parameter | Type     |                 |
-| :-------- |:-------- | :------- | :------------------------- |
+| sent by |Parameter | Type     |                 
+| :-------- |:-------- | :------- | 
 | `header` |`authorization` | `Bearer token` |
