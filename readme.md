@@ -1,6 +1,11 @@
 
 # RepoProvas
 
+<p align="center">
+   <img width=350 src="https://notion-emojis.s3-us-west-2.amazonaws.com/prod/svg-twitter/1f5c3-fe0f.svg"/>
+</p>
+
+
 - As semanas de provas deixam qualquer universitário desesperado por ajuda, que nem sempre tem tempo suficiente para se preparar para elas.
 - E se tivéssemos uma API que organiza as provas antigas?
 - No RepoProvas Você pode criar uma conta e procurar por provas de suas disciplinas e professores ou enviar provas antigas para ajudar os calouros :)
@@ -69,7 +74,7 @@ category, teacher and discipline must be consistent with the bank's rules
 
 | sent by |Parameter | Type     |                 |
 | :-------- |:-------- | :------- | :------------------------- |
-| `header` |`authorization` | `Bearer string` | **Required**  |
+| `header` |`authorization` | `Bearer token` | **Required**  |
 
 #### Views the tests by teacher
 
@@ -79,4 +84,4 @@ category, teacher and discipline must be consistent with the bank's rules
 
 | sent by |Parameter | Type     |                 |
 | :-------- |:-------- | :------- | :------------------------- |
-| `header` |`authorization` | `Bearer string` | **Required**  |
+| `header` |`authorization` | `Bearer token` | **Required**  |
