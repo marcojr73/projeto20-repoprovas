@@ -14,42 +14,46 @@ model users {
   id                        Int @id @default(autoincrement())
   email                     String  @unique
   password                  String
-  createdAt         DateTime @default(now())
+  createdAt                 DateTime @default(now())
 }
 
 model categories {
   id                        Int @id @default(autoincrement())
   name                      String @unique
   tests                     tests[]
-  createdAt         DateTime @default(now())
+  createdAt                 DateTime @default(now())
 }
 
 model tests {
   id                        Int @id @default(autoincrement())
   name                      String
   pdfUrl                    String
-  category                  categories @relation(fields: [categoryId], references: [id])
+  categories                categories @relation(fields: [categoryId], references: [id])
   categoryId                Int
-  teacherDisciplines        teacherDisciplines @relation(fields: [teacherDisciplineId], references: [id])
+  teacherDisciplines        teachersDisciplines @relation(fields: [teacherDisciplineId], references: [id])
   teacherDisciplineId       Int
-  createdAt         DateTime @default(now())
+  createdAt                 DateTime @default(now())
+
+  @@unique([categoryId, teacherDisciplineId])
 }
 
-model teacherDisciplines{
+model teachersDisciplines{
   id                        Int @id @default(autoincrement())
   teacher                   teachers @relation(fields: [teacherId], references: [id])
   teacherId                 Int
   disciplines               disciplines @relation(fields: [disciplineId], references: [id])
   disciplineId              Int
   tests                     tests[]
-  createdAt         DateTime @default(now())
+  createdAt                 DateTime @default(now())
+
+  @@unique([teacherId, disciplineId])
 }
 
 model teachers{
   id                        Int @id @default(autoincrement())
   name                      String @unique
-  teacherDisciplines        teacherDisciplines[]
-  createdAt         DateTime @default(now())
+  teachersDisciplines       teachersDisciplines[]
+  createdAt                 DateTime @default(now())
 }
 
 model disciplines{
@@ -57,14 +61,14 @@ model disciplines{
   name                      String @unique
   terms                     terms @relation(fields: [termId], references: [id])
   termId                    Int
-  teacherDisciplines        teacherDisciplines[]
-  createdAt         DateTime @default(now())
+  teachersDisciplines       teachersDisciplines[]
+  createdAt                 DateTime @default(now())
 }
 
 model terms {
   id                        Int @id @default(autoincrement())
   number                    Int @unique
   disciplines               disciplines[]
-  createdAt         DateTime @default(now())
+  createdAt                 DateTime @default(now())
 }
 
