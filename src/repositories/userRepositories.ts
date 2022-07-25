@@ -9,6 +9,14 @@ async function findByEmail(email: string){
     })
 }
 
+async function selectListEmails(){
+    return client.users.findMany({
+        select:{
+            email: true
+        }
+    })
+}
+
 function insertNewUser(dataUser: userData){
     return client.users.create({
         data: dataUser
@@ -18,4 +26,5 @@ function insertNewUser(dataUser: userData){
 export {
     findByEmail,
     insertNewUser,
+    selectListEmails
 }

@@ -15,6 +15,7 @@ async function addTest(req: Request, res: Response){
     const teacherDisciplineId = await addServices.findTeacherDiscipline(teacherId, disciplineId)
     await addServices.validateTestNotExist({name, pdfUrl, categoryId, teacherDisciplineId})
     await addServices.insertTest({name, pdfUrl, categoryId, teacherDisciplineId})
+    await addServices.buildEmail(teacher, category, name, discipline)
 
     res.status(201).send("Test register sucessfull")
 }
