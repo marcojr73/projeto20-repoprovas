@@ -3,6 +3,8 @@ import {dataTest} from "../repositories/testsRepositories.js"
 import sgMail from "@sendgrid/mail"
 import dotenv from "dotenv"
 import { selectListEmails } from "../repositories/userRepositories.js"
+import { createClient } from "@supabase/supabase-js";
+
 
 async function findCategory(category: string){
     category = category[0].toUpperCase() + category.substring(1)
@@ -55,7 +57,7 @@ async function validateTestNotExist(dataTest: dataTest){
     }
 }
 
-async function buildEmail(teacher, category, name, discipline){
+async function buildEmail(teacher: string, category: string, name: string, discipline: string){
     dotenv.config()
     const {SGKEY} = process.env
     sgMail.setApiKey(SGKEY)
@@ -67,7 +69,7 @@ async function buildEmail(teacher, category, name, discipline){
                 to: email,
                 from: "marcojuniorengineer@gmail.com",
                 subject: "Estudante, uma nova prova foi adicionada!",
-                text: `A seguinte prova foi adicionadas: ${teacher} ${category} 2022 - ${name} ${discipline}`
+                text: `A seguinte prova foi adicionadas: ${teacher} ${category} - ${name} ${discipline}`
             }
             await sgMail.send(body)
         }    
@@ -79,6 +81,17 @@ async function buildEmail(teacher, category, name, discipline){
     }
 }
 
+async function aploadPdfOnCloud(file){
+    // console.log(file)
+    // dotenv.config()
+    // const {SUPABASEKEY} = process.env
+    // const {SUPABASEURL} = process.env
+    // const name = `${Date.now()}-${file.originalname}`
+    // const supabase = createClient(SUPABASEURL, SUPABASEKEY)
+    // const {data, error} = await supabase.storage.from('repoprovas').upload(name, file)
+    // console.log(data, error)
+}
+
 export {
     findCategory,
     findDiscipline,
@@ -86,5 +99,6 @@ export {
     findTeacherDiscipline,
     validateTestNotExist,
     insertTest,
-    buildEmail
+    buildEmail,
+    aploadPdfOnCloud
 }

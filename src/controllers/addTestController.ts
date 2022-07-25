@@ -1,14 +1,18 @@
+
 import { Request, Response } from "express";
 import * as utils from "../utils/utils.js"
 import * as addServices from "../services/addTestService.js"
 
-async function addTest(req: Request, res: Response){
 
+async function addTest(req: Request, res: Response){
+    
     const {name, pdfUrl, category, discipline, teacher}: utils.dataCreate = req.body
+
     const token: string = req.headers.authorization?.replace("Bearer", "").trim()
 
     await utils.validatetionTokenAndStoreUser(token)
 
+    await addServices.aploadPdfOnCloud(req.file)
     const categoryId = await addServices.findCategory(category)
     const disciplineId = await addServices.findDiscipline(discipline)
     const teacherId = await addServices.findTeacher(teacher)
