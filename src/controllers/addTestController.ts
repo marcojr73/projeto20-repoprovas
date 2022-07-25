@@ -12,7 +12,7 @@ async function addTest(req: Request, res: Response){
 
     await utils.validatetionTokenAndStoreUser(token)
 
-    await addServices.aploadPdfOnCloud(req.file)
+    // await addServices.aploadPdfOnCloud(req.file)
     const categoryId = await addServices.findCategory(category)
     const disciplineId = await addServices.findDiscipline(discipline)
     const teacherId = await addServices.findTeacher(teacher)

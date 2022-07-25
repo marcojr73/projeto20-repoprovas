@@ -82,14 +82,13 @@ async function buildEmail(teacher: string, category: string, name: string, disci
 }
 
 async function aploadPdfOnCloud(file){
-    // console.log(file)
-    // dotenv.config()
-    // const {SUPABASEKEY} = process.env
-    // const {SUPABASEURL} = process.env
-    // const name = `${Date.now()}-${file.originalname}`
-    // const supabase = createClient(SUPABASEURL, SUPABASEKEY)
-    // const {data, error} = await supabase.storage.from('repoprovas').upload(name, file)
-    // console.log(data, error)
+    console.log(file)
+    dotenv.config()
+    const {SUPABASEKEY, SUPABASEURL} = process.env
+    const name = `${Date.now()}-${file.originalname}`
+    const supabase = createClient(SUPABASEURL, SUPABASEKEY)
+    const {data, error} = await supabase.storage.from('repoprovas').upload(name, file)
+    console.log(data, error)
 }
 
 export {

@@ -9,6 +9,10 @@
 - As semanas de provas deixam qualquer universitário desesperado por ajuda, que nem sempre tem tempo suficiente para se preparar para elas.
 - E se tivéssemos uma API que organiza as provas antigas?
 - No RepoProvas Você pode criar uma conta e procurar por provas de suas disciplinas e professores ou enviar provas antigas para ajudar os calouros :)
+- Veja meu deploy na Heroku => https://api-repoprovas-typescript.herokuapp.com/
+
+***
+
 ## Usage
 
 Install my-project with npm and configure .env
@@ -24,6 +28,20 @@ Install my-project with npm and configure .env
   
   npm run dev
 ```
+
+***
+
+##	 Tecnologias e Conceitos
+
+- REST APIs
+- Node.js
+- TypeScript
+- ORM (prisma)
+- Testes com jest e supertest
+- Autenticação por token JWT
+- SendGrid (disparador de emails automáticos)
+
+***
     
 ## API Reference
 
