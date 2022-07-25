@@ -87,7 +87,7 @@ async function aploadPdfOnCloud(file){
     const {SUPABASEKEY, SUPABASEURL} = process.env
     const name = `${Date.now()}-${file.originalname}`
     const supabase = createClient(SUPABASEURL, SUPABASEKEY)
-    const {data, error} = await supabase.storage.from('repoprovas').upload(name, file)
+    const {data, error} = await supabase.storage.from('repoprovas').upload(name, file, {contentType:'image/pdf'})
     console.log(data, error)
 }
 

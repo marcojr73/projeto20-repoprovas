@@ -13,9 +13,9 @@
 
 ***
 
-## Usage
+## Como usar
 
-Install my-project with npm and configure .env
+Instale meu projeto e configure o .env como no exemplo
 
 ```bash
   git clone git@github.com:marcojr73/projeto20-repoprovas.git
@@ -33,7 +33,6 @@ Install my-project with npm and configure .env
 
 ##	 Tecnologias e Conceitos
 
-- REST APIs
 - Node.js
 - TypeScript
 - ORM (prisma)
