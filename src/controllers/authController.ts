@@ -15,11 +15,11 @@ async function signUp(req: Request, res: Response){
 async function signIn(req: Request, res: Response){
     
     const {email, password}: {email: string, password: string} = req.body
-
+    
     const user = await authService.verifyAndGetIfUserExists(email)
     authService.verifyPasswordIsCorrect(password, user.password)
     const token = authService.generateToken(user.id)
-
+    
     res.status(200).send(token)
 }
 
