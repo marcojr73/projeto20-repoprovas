@@ -9,7 +9,7 @@
 - As semanas de provas deixam qualquer universitário desesperado por ajuda, que nem sempre tem tempo suficiente para se preparar para elas.
 - E se tivéssemos uma API que organiza as provas antigas?
 - No RepoProvas Você pode criar uma conta e procurar por provas de suas disciplinas e professores ou enviar provas antigas para ajudar os calouros :)
-- Veja meu deploy na Heroku => https://api-repoprovas-typescript.herokuapp.com/
+- [Veja meu deploy na Heroku aqui](https://api-repoprovas-typescript.herokuapp.com/)
 
 ***
 
